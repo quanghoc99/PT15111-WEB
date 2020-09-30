@@ -20,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::view('/admin', 'test-admin');
+
 Route::get('/students', function () {
     // Su dung query builder
     // Lay ra mang students
