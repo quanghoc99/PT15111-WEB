@@ -17,7 +17,7 @@ class StudentTableSeeder extends Seeder
         if (DB::table('students')->count() === 0) {
             DB::table('students')->insert([
                 [
-                    'name' => 'Do Hong Son',
+                    'name' => 'ngo quang hoc',
                     'phone' => '0123456789',
                     'age' => 24,
                     'gender' => 1,
@@ -25,8 +25,8 @@ class StudentTableSeeder extends Seeder
                     'is_active' => true,
                 ],
                 [
-                    'name' => 'Do Hong Minh',
-                    'phone' => '0123456789',
+                    'name' => 'dsadsadsad',
+                    'phone' => '56782293',
                     'age' => 24,
                     'gender' => 0,
                     'address' => 'HN',
@@ -34,7 +34,7 @@ class StudentTableSeeder extends Seeder
                 ],
             ]);
         }else{
-            echo 'bang nay da co du lieu' . PHP_EOL;
+            echo ' bang nay da co du lieu' . PHP_EOL;
         }
     }
 }
