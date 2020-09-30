@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use DB;
+use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\FuncCall;
+// dùng request để nhận dữ liêu gửi lên
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,25 +22,52 @@ Route::get('/', function () {
 });
 
 Route::get('/students', function () {
-    // Su dung query builder
-    // Lay ra mang students
-    $students = DB::table('students')->where('id', '<', 5)->get();
-    // Lay rieng 1 student
-    // $student = DB::table('students')->find(1);
-    $student = DB::table('students')->where('id', '=', 1)->first();
+    //sử dụng query builer 
+    // return DB::table('students')->where('id','=',26)->get();
+    //lấy ra mảng students
+    // $students = DB::table('students')->get();
+    //lấy ra riêng 1 students
+    $students = DB::table('students')->find(26);
 
-
-    // truyen vao [ten bien view nhan duoc => gia tri];
-    return view('students.detail', ['studentValue' => $student]);
+    //truyền vào mảng [tên biến view nhận đc => giá trị $students]
+    return view('students.detail', ['studentsValue' => $students]);
 });
 
-// Gia tri truyen vao url se tuong ung vi tri tham so cua function
-Route::get('/students/{id}/{age}', function ($id, $age) {
-    dd('Gia tri truyen vao tren url: ' . $id . ' ' . $age);
+
+//giá trị truyền vài tương ứng với tham số function
+Route::get('/students/{id}/{age}', function ($id, $number) {
+    dd('gia tri truyen vao url la: ' . $id . ' va ' . $number);
 });
 
 Route::get('/students/detail', function () {
     return view('students.detail');
 });
-// Cach 2:
+
+//cách số 2:
 Route::view('/students/detail-2', 'students.detail');
+
+//tạo đường dẫn và truy vấn
+Route::get('/students-list', function () {
+    //truy vấn
+    $students = DB::table('students')->orderBy('id', 'desc')->get();
+
+    return view('students.list', ['list' => $students]);
+})->name('students-list');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('get-login');
+
+Route::post('/post-login', function (Request $request) {
+    // dd($request->all());
+    $username = $request->username;
+    //thực hiện truy vấn theo giá trị vừa gửi lên
+    $students = DB::table('students')->where('name', 'like', "%$username%")->first();
+    //nếu có student thì sẽ rediẻct sang student-list
+    if ($students) {
+        return redirect()->route('students-list');
+    }
+    // nếu không thì quay lại login
+    return redirect()->route('get-login');
+    
+})->name('post-login');

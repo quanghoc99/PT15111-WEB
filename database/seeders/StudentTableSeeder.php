@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-// use DB de co the su dung cac phuong thuc trong no
-use DB;
+use Illuminate\Support\Facades\DB;
 
-class StudentsTableSeeder extends Seeder
+class StudentTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,24 +17,24 @@ class StudentsTableSeeder extends Seeder
         if (DB::table('students')->count() === 0) {
             DB::table('students')->insert([
                 [
-                    'name' => 'Nguyen Van A',
-                    'phone' => '0123123123',
-                    'age' => 20,
+                    'name' => 'Do Hong Son',
+                    'phone' => '0123456789',
+                    'age' => 24,
                     'gender' => 1,
                     'address' => 'HN',
                     'is_active' => true,
                 ],
                 [
-                    'name' => 'Nguyen Van B',
-                    'phone' => '0123123564',
-                    'age' => 22,
+                    'name' => 'Do Hong Minh',
+                    'phone' => '0123456789',
+                    'age' => 24,
                     'gender' => 0,
-                    'address' => 'BN',
-                    'is_active' => false,
+                    'address' => 'HN',
+                    'is_active' => true,
                 ],
             ]);
-        } else {
-            echo 'Bang students da co du lieu' . PHP_EOL;
+        }else{
+            echo 'bang nay da co du lieu' . PHP_EOL;
         }
     }
 }

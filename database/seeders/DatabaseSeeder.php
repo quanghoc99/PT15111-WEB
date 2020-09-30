@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Student;
-use App\Models\Subject;
+use App\Models\Teacher;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,11 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
         Student::factory(10)->create();
-        Subject::factory(20)->create();
+        Teacher::factory(10)->create();
+        // đẩy dữ liệu
         // $this->call([
-        //     StudentsTableSeeder::class,
-        //     SubjectsTableSeeder::class,
+        //     StudentTableSeeder::class,
+        //     TeacherTableSeeder::class,
         // ]);
     }
 }

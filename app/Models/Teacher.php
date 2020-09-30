@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class Teacher extends Model
 {
     use HasFactory;
 
-    protected $table = 'subjects';
+    protected $table = 'teacher';
 
     protected $fillable = [
         'name',
-        'time',
-        'is_active'
+        'phone',
+        'age',
+        'gender'
     ];
+    protected $timestamp = false;
 }

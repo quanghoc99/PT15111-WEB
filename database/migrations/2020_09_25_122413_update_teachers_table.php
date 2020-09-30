@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateTimeSubjectsTable extends Migration
+class UpdateTeachersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdateTimeSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::table('subjects', function (Blueprint $table) {
-            $table->dateTime('time')->after('name');
+        Schema::table('teacher', function(Blueprint $table) {
+            $table->timestamps();
         });
     }
 
@@ -25,8 +25,6 @@ class UpdateTimeSubjectsTable extends Migration
      */
     public function down()
     {
-        Schema::table('subjects', function (Blueprint $table) {
-            $table->dropColumn('time');
-        });
+        
     }
 }
