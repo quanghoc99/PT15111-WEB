@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo student list</title>
+<!-- Ke thua view master: student-layout/master.blade.php -->
+@extends('student-layout.master')
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
-<body>
+<!-- Thay doi noi dung don gian -->
+@section('title', 'Title list extends')
+
+@section('header', 'Header List extends')
+
+<!-- Thay doi noi dung phuc tap -->
+@section('content')
     List
     <table border='1' class='table'>
         <thead>
@@ -39,5 +39,6 @@
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+@endsection
+
+@section('footer', 'Footer list extends')
