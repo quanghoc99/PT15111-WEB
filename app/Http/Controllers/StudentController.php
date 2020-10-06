@@ -41,6 +41,8 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        $student = new Student;
+        $student->name = $request->name;
         //
     }
 
@@ -53,6 +55,7 @@ class StudentController extends Controller
     // show su dung phuong thuc GET, route name la students.show
     public function show(Student $student)
     {
+        $student = Student::find(1);
         // // Neu chi truyen vao $student -> nhan duoc id cua Student
         // $studentObjEloquentModel = Student::find($student);
         // $studentObjQueryBuilder = DB::table('students')->find($student);
@@ -72,6 +75,8 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
+        $student = Student::find(1);
+        return view('students.edit', ['student' => $student]);
         //
     }
 
@@ -95,6 +100,8 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
+        dd($student);
+        // return view('student.index')
         //
     }
 }
