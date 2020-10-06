@@ -41,11 +41,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $student = new Student;
-
-        $student->name = $request->name;
-        // ....
-        $student->save();
+        //
     }
 
     /**
@@ -76,7 +72,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('students.edit', ['student' => $student]);
+        //
     }
 
     /**
@@ -88,18 +84,7 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        // dd($request->all());
-        // Gan gia tri moi cho cac thuoc tinh cua student can update
-        $student->name = $request->name;
-
-        // Thuc hien goi phuong thuc save() de luu du lieu
-        $student->save();
-
-        // Cach 2: $student->update(['name' => $request->name]);
-        // Hoac $student->update([$request->all()])
-        // Khong can save
-
-        return redirect()->route('students.index');
+        //
     }
 
     /**
@@ -110,13 +95,6 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        // Kiem tra ton tai sinh vien -> xoa
-        if($student) {
-            $student->delete(); // tra ve ket qua true/false
-        }
-
-        // Cach 2: Student::destroy($student->id); // tra ve so luong ban ghi bi xoa
-        // Redirect ve danh sach (co thuc hien truy van lay ds moi)
-        return redirect()->route('students.index');
+        //
     }
 }
